@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 	fseek(fp, (id - START_ID) * sizeof(rec), SEEK_SET);
 
 	if((fread(&rec, sizeof(rec), 1, fp) > 0)) {
-		fseek(fp, -sizeof(rec), SEEK_CUR);
+		fseek(fp, (id - START_ID) * sizeof(rec), SEEK_SET);
 		rec.stock--;
 		fwrite(&rec, sizeof(rec),1, fp);
 	}
